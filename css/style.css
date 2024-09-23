@@ -176,7 +176,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
-  color: #ffbe33;
+  color: #da1b1b;
 }
 
 .custom_nav-container .nav_search-btn {
@@ -189,7 +189,7 @@ a:focus {
 }
 
 .custom_nav-container .nav_search-btn:hover {
-  color: #ffbe33;
+  color: #da1b1b;
 }
 
 .user_option {
@@ -210,7 +210,7 @@ a:focus {
 }
 
 .user_option .user_link:hover {
-  color: #ffbe33;
+  color: #da1b1b;
 }
 
 .user_option .cart_link {
@@ -233,22 +233,22 @@ a:focus {
 }
 
 .user_option .cart_link:hover svg {
-  fill: #ffbe33;
+  fill: #da1b1b;
 }
 
 .user_option .order_online {
   display: inline-block;
   padding: 8px 30px;
-  background-color: #ffbe33;
+  background-color: #da1b1b;
   color: #ffffff;
   border-radius: 45px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: none;
 }
-
-.user_option .order_online:hover {
-  background-color: #e69c00;
+/* icones carrinh, login, lupa */
+.user_option .order_online:hover { 
+  background-color: #da1b1b;
 }
 
 .custom_nav-container .navbar-toggler {
@@ -354,7 +354,7 @@ a:focus {
 .slider_section .detail-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #ffbe33;
+  background-color: #da1b1b;
   color: #ffffff;
   border-radius: 45px;
   -webkit-transition: all 0.3s;
@@ -393,7 +393,7 @@ a:focus {
 .slider_section .carousel-indicators li.active {
   width: 20px;
   height: 20px;
-  background-color: #ffbe33;
+  background-color: #da1b1b;
 }
 
 .offer_section {
@@ -424,7 +424,7 @@ a:focus {
   -webkit-transition: all 0.1 0.5s;
   transition: all 0.1 0.5s;
   border-radius: 100%;
-  border: 5px solid #ffbe33;
+  border: 5px solid #da1b1b;
   overflow: hidden;
 }
 
@@ -613,6 +613,50 @@ a:focus {
 .food_section .btn-box a:hover {
   background-color: #e69c00;
 }
+
+/* ===================carrossel =========================== */
+.myCarousel {
+  position: relative;
+  max-width: 50%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.myCarousel-slide {
+  display: none;
+  width: 100%;
+}
+
+.myCarousel-slide img {
+  width:80%;
+  height: auto;
+}
+
+.activeSlide {
+  display: block;
+}
+
+.prevSlide, .nextSlide {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  padding: 16px;
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  font-weight: bold;
+  transition: 0.6s ease;
+  user-select: none;
+}
+
+.prevSlide {
+  left: 0;
+}
+
+.nextSlide {
+  right: 0;
+}
+ 
+
 
 .about_section {
   background: #222831;
