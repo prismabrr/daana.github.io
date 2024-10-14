@@ -892,6 +892,43 @@ a:focus {
   border-radius: 100%;
 }
 
+/* =================================================================================================barra de pesquisa================================================ */
+.search-container {
+  position: relative;
+  display: inline-block;
+}
+/* Ícone da lupa */
+.nav_search-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+/* Barra de busca flutuante */
+#searchInput {
+  display: none;
+  position: absolute;
+  top: 40px; /* Abaixo do ícone */
+  left: 0;
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Mantém a barra sobre outros elementos */
+}
+/* Produtos */
+.product {
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+
+/* ========================================================fim da barra de pesquisa====================================== */
+
+
 /* client section end */
 .contact_section .heading_container {
   margin-bottom: 45px;

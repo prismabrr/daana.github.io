@@ -7,12 +7,12 @@ function toggleCart() {
     cartSidebar.classList.toggle('open', cartOpen);
 }
 
-function addToCart(name, price) {
+function addToCart(name, price, code) {
     const existingItemIndex = cart.findIndex(item => item.name === name);
     if (existingItemIndex !== -1) {
         cart[existingItemIndex].quantity++;
     } else {
-        cart.push({ name, price, quantity: 1 });
+        cart.push({ name, price, code, quantity: 1 });
     }
     updateCart();
 }
@@ -26,6 +26,7 @@ function updateCart() {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${item.name}</td>
+            
             <td>${item.price.toFixed(2)}</td>
             <td>
                 <div class="quantity-controls">
@@ -68,7 +69,7 @@ function removeFromCart(name) {
 }
 
 function finalizeCart() {
-    const cartDetails = cart.map(item => `${item.name} - ${item.quantity} x ${item.price.toFixed(2)} = ${(item.price * item.quantity).toFixed(2)}`).join('\n');
+    const cartDetails = cart.map(item => `${item.name} ----${item.code} ------------ ${item.quantity} x ${item.price.toFixed(2)} = ${(item.price * item.quantity).toFixed(2)}`).join('\n');
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
     const message = `Itens do carrinho:\n${cartDetails}\nTotal: ${total}\n\nContato via WhatsApp: https://wa.me/5579996004918`;
 

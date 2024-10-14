@@ -128,13 +128,16 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
+              <div class="search-container">
+                <form class="form-inline">
+                    <button class="btn my-2 my-sm-0 nav_search-btn" type="button" onclick="toggleSearch()">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                    <input type="text" id="searchInput" placeholder="Digite o nome do produto..." onkeyup="searchProduct()">
+                </form>
+            </div>
               <a href="" class="order_online">
-                Order Online
+                Falar com vendedor
               </a>
             </div>
           </div>
@@ -143,8 +146,32 @@
     </header>
     <!-- end header section -->
   </div>
+  <!-- botão para subir a pagina======================================= -->
+   <style>
+      #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      background-color: #9f0404;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 1000;
+  }
+
+    #scrollTopBtn:hover {
+        background-color: #e98e8e;
+    }
+
+   </style>
+  <button id="scrollTopBtn" onclick="scrollToTop()">^</button>
 
   <!-- food section -->
+   
 
   <section class="food_section layout_padding">
     <div class="container">
@@ -155,17 +182,20 @@
       </div>
 
       <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Burger</li>
-        <li data-filter=".pizza">Pizza</li>
-        <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li>
+        
+        <li data-filter=".temperos">Temperos</li>
+        <li data-filter=".cha">Chá</li>
+        <li data-filter=".molhos">Molhos</li>
+        <li data-filter=".matinais">Matinais</li>
+        <li data-filter=" .especiarias"> Especiarias</li>
+        <li data-filter=" .alhoChurrasco"> Alhos / churrasco</li>
         <li data-filter=" .licores"> Licores</li>
+        <li class="active" data-filter="*">Tudo</li>
       </ul>
 
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -173,16 +203,16 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                   chá de amora
+                   Chá de amora
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 unidades de 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      R$20,00
+                      R$16,90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá de amora', 16.90, '(cod_220)')">Adicionar ao Carrinho</button>
                   </div>
                 </div>
               </div>
@@ -191,7 +221,7 @@
 
 
 
-          <div class="col-sm-6 col-lg-4 all burger">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -199,16 +229,16 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    chá capim limão
+                    Chá capim limão
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 unidades de 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      $15
+                      $16,90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('C/capim  limão', 15, './images/chá/capim limao.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('cha capim  limão', 16.90, '(cod_224)', './images/chá/capim limao.jpg')">Adicionar ao Carrinho</button>
 
                     
                   </div>
@@ -217,24 +247,24 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-4 all pizza">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/c amora.jpg" alt="">
+                  <img src="./images/chá/c barba.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    Chá Barbatimão
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
+                    6 unidades de 30 gramas
+                    </p>
                   <div class="options">
                     <h6>
-                      $17
+                      $16,90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá Barbatimão', 16.90,'(cod_221)', )">Adicionar ao Carrinho</button>
 
                   </div>
                 </div>
@@ -242,24 +272,24 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/c amora.jpg" alt="">
+                  <img src="./images/chá/c carqueja.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    Chá carqueja
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 unidades de 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      $18
+                      $16,90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá de carqueja ', 16.90, '(cod_227)')">Adicionar ao Carrinho</button>
 
                   </div>
                 </div>
@@ -267,24 +297,24 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-4 all fries">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/c amora.jpg" alt="">
+                  <img src="./images/chá/c cavalinha.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    French Fries
+                    Chá de cavalinha
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 unidades de 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      $10
+                      $16,90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá de cavalinha', 16.90, '(cod_230)')">Adicionar ao Carrinho</button>
 
                   </div>
                 </div>
@@ -292,24 +322,24 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-4 all licores">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/c amora.jpg" alt="">
+                  <img src="./images/chá/c dente.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    Chá Dente de Leão
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 pacotes de 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      $15
+                      $16,90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá Dente de Leão', 16.90, '(cod_229)')">Adicionar ao Carrinho</button>
 
                   </div>
                 </div>
@@ -317,24 +347,24 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-4 all burger">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/c amora.jpg" alt="">
+                  <img src="./images/chá/c espinheira.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Tasty Burger
+                    Chá de Espinheira Santa
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 pacotes de 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      $12
+                      $16.90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá de espinheira santa', 16.90, '(cod_232)')">Adicionar ao Carrinho</button>
 
                   </div>
                 </div>
@@ -342,24 +372,24 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-4 all burger">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/c amora.jpg" alt="">
+                  <img src="./images/chá/c hibisco.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Tasty Burger
+                    Chá de Hibisco
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 pacotes de 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      $14
+                      $16,90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá de Hibisco', 16.90, '(cod_1401)')">Adicionar ao Carrinho</button>
 
                   </div>
                 </div>
@@ -368,24 +398,24 @@
           </div>
 
           
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/c amora.jpg" alt="">
+                  <img src="./images/chá/c moringa.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    Chá de Moringa
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 pacotes de 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      $10
+                      $23,90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá de moringa', 23.90, '(cod_225)')">Adicionar ao Carrinho</button>
 
                   </div>
                 </div>
@@ -393,24 +423,24 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/c amora.jpg" alt="">
+                  <img src="./images/chá/c mulu.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    Chá de Mulungu
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 pacotes com 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      $10
+                      $16.90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá de Mulungu', 16.90, '(cod_488)')">Adicionar ao Carrinho</button>
 
                   </div>
                 </div>
@@ -418,24 +448,24 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/c amora.jpg" alt="">
+                  <img src="./images/chá/c patavaca.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    Chá Patavaca
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 pacotes de 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      $10
+                      $16.90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá de patavaca', 16.90, '(cod_228)')">Adicionar ao Carrinho</button>
 
                   </div>
                 </div>
@@ -443,30 +473,2810 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all cha">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/c amora.jpg" alt="">
+                  <img src="./images/chá/C PRETO.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    Chá Preto
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    6 pacotes de 30 gramas
                   </p>
                   <div class="options">
                     <h6>
-                      $10
+                      $16.90
                     </h6>
-                    <button class="add-to-cart" onclick="addToCart('chá de amora', 20, './images/chá/c amora.jpg')">Adicionar ao Carrinho</button>
+                    <button class="add-to-cart" onclick="addToCart('chá Preto', 16.90, '(cod_59)')">Adicionar ao Carrinho</button>
 
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/c quebra.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá de Quebra pedra
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá Quebra pedra', 16.90, '(cod_222)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/c roma.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá de Romã
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá de Romã', 16.90, '(cod_235)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/c stevia.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá Stévia
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá Stevia', 16.90, '(cod_241)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/c sucupira.jpg " alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá de Sucupira
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá de sucupira', 16.90, '(cod_226)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/c unha.jpg " alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá Unha de Gato
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá Unha de gato', 16.90, '(cod_223)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/c verde.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá Verde
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá Verde', 16.90, '(cod_2870)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha canabrejo.jpg " alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá Cana de brejo
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá Cana de brejo', 16.90, '(cod_1057)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha canela velho.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá Canela de velho
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá canela de velho', 16.90, '(cod_231)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha chapeu.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá de Chapeu de Couro
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá Chapeu de Couro', 16.90, '(cod_1046)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha cipo.jpg " alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá Cipó Mil Homens
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá Cipó mil Homens', 16.90, '(cod_1043)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha ginseng.jpg " alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá Ginseng
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá ginseng', 16.90, '(cod_1052)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha hortela.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá de Hortelã
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá Hortelã', 16.90, '(cod_234)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha marapuama.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá de Marapuama
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá marapuama', 16.90, '(cod_1037)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha melissa.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá Melissa
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá melissa', 16.90, '(cod_1055)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha passiflora.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá Passiflora
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá passiflora', 16.90, '(cod_82)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha pau pereira.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá pau pereira
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá pau pereira', 16.90, '(cod_1053)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha pautenente.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá Pau tenente
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16.90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá pau tenente', 16.90, '(cod_236)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all cha">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/chá/cha valeriana.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chá valeriana
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $47,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chá Valeriana', 47.50, '(cod_1048)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ======================================================= temperos ================================================================= -->
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/001.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Castanha de cajú
+                  </h5>
+                  <p>
+                    6 pacotes de 50 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $32,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Castanha de caju', 32.00, '(cod_104)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/002.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Castanha do pará
+                  </h5>
+                  <p>
+                    6 pacotes de 50 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $33,95
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Castanha do pará', 33.95, '(cod_847)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/003.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Amendoim
+                  </h5>
+                  <p>
+                    6 pacotes de 45 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $12,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Amendoim', 12.00, '(cod_100)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/004.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Amendoim japonês
+                  </h5>
+                  <p>
+                    6 pacotes de 50 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $8,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Amendoim japonês', 8.90, '(cod_205)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/005.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Curry
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Curry', 9.90, '(cod_881)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/006.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Bicarbonato
+                  </h5>
+                  <p>
+                    12 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $10,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Bicarbonato', 10.90, '(cod_103)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/007.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Cominho puro
+                  </h5>
+                  <p>
+                    12 pacotes de 40 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $24,30
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('cominho puro', 24.30, '(cod_106)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/008.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Gengibre em pó
+                  </h5>
+                  <p>
+                    6 pacotes de 15 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $8,24
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Gengibre em pó', 8.24, '(cod_1399)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/009.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tomilho
+                  </h5>
+                  <p>
+                    6 pacotes de 10 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $8,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tomilho', 8.50, '(cod_125)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/010.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Cominho com pimenta
+                  </h5>
+                  <p>
+                    12 pacotes de 40 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $24,30
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('cominho com pimenta', 24.30, '(cod_105)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/011.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Coloral
+                  </h5>
+                  <p>
+                    10 pacotes de 80 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Coloral', 9.50, '(cod_111)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/012.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Bar-har
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Bar-har', 9.00, '(cod_1548)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/013.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Cúrcuma
+                  </h5>
+                  <p>
+                    6 pacotes de 20 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Curcuma', 9.00, '(cod_208)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/014.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Paprica Doce
+                  </h5>
+                  <p>
+                    6 pacotes de 20 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,25
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Paprica Doce', 9.25, '(cod_1498)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/015.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Páprica Picante
+                  </h5>
+                  <p>
+                    6 pacotes de 20 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,25
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Paprica Picante', 9.25, '(cod_1400)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/016.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Páprica Defumada
+                  </h5>
+                  <p>
+                    6 pacotes de 20 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,24
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Paprica Defumada', 9.25, '(cod_240)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/017.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pimenta do reino moída
+                  </h5>
+                  <p>
+                    conferir
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $47,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('pimenta do reino moída', 47.50, '(cod_)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/018.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pimenta do reino
+                  </h5>
+                  <p>
+                    conferir
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $47,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Pimenta do reino', 47.50, '(cod_)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/019.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Açafrão
+                  </h5>
+                  <p>
+                    12 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $12,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Açafrão', 12.50, '(cod_102)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/020.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tempero para frango
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $8,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tempero para frango', 8.00, '(cod_422)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/021.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Chimichurri
+                  </h5>
+                  <p>
+                    6 pacotes de 15 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chimichurri', 9.50, '(cod_853)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/022.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tempeiro pra peixe
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $7,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tempeiro pra peixe', 7.50, '(cod_423)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/023.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Duguedis
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,75
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Duguedis', 9.75, '(cod_424)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/024.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tempeiro da Ana Maria
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,75
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tempeiro da Ana Maria', 9.75, '(cod_934)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/025.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tempeiro do chef
+                  </h5>
+                  <p>
+                    6 pacotes de 20 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tempeiro do chef', 9.00, '(cod_287)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/026.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Cheiro verde
+                  </h5>
+                  <p>
+                    6 pacotes de 5 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Cheiro verde', 9.50, '(cod_458)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/031.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Alho em pó
+                  </h5>
+                  <p>
+                   conferir
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $47,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Alho em pó', 47.50, '(cod_)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/027.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tempeiro para carne
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $7,70
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tempeiro pra carne', 7.70, '(cod_461)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/028.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Lemon pepper
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Lemon pepper', 9.50, '(cod_481)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/029.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Alho em flocos
+                  </h5>
+                  <p>
+                    6 pacotes de 20 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $11,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Alho em flocos', 11.50, '(cod_484)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/030.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tempeiro para massa
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $12,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tempeiro para massa', 12.00, '(cod_184)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/032.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Vinagrete
+                  </h5>
+                  <p>
+                    6 pacotes de 10 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $6,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Vinagrete', 6.50, '(cod_431)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/033.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pega Esposa
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $14,55
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Pega Esposa', 14.55, '(cod_177)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/034.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tempeiro mineiro
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tempeiro Mineiro', 9.00, '(cod_80)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/035.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tempeiro Conquista sogra
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $11,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tempeiro conquista sogra', 11.50, '(cod_1475)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/036.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tempeiro pega marido
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $13,10
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tempeiro pega marido', 13.10, '(cod_81)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all temperos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/temperos/037.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tempeiro Galinha Caipira
+                  </h5>
+                  <p>
+                    6 pacotes de 30 gramas
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $8,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Tempeiro galinha caipira', 8.00, '(cod_483)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- =========================================================molhos=========================================================== -->
+
+
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/DENDE1.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Azeite de Dendê
+                  </h5>
+                  <p>
+                    6 garrafas de 500ml
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $64,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Azeite de Dendê', 64.00, '(cod_1499)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/DENDE2.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Azeite de Dendê
+                  </h5>
+                  <p>
+                    6 garrafas de 200ml
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $30,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Azeite de Dendê', 30.00, '(cod_1326)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/MOLHO INGLES.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Molho Inglês
+                  </h5>
+                  <p>
+                    6 garrafas de 150ml
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $17,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Molho Inglês', 17.00, '(cod_404)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/MOLHO1.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Molho de Pimenta Gourmet
+                  </h5>
+                  <p>
+                    6 garrafas de 150ml
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $25,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Molho pimenta gourmet', 25.00, '(cod_237)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/MOLHO2.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Molho de Alho
+                  </h5>
+                  <p>
+                    6 garrafas de 150ml
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $13,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Molho Alho', 13.50, '(cod_440)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/MOLHO3.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Molho de Pimenta com l/coco
+                  </h5>
+                  <p>
+                    6 garrafas de 150ml
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $25,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Molho pimenta c/leite coco', 25.00, '(cod_536)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/SHOYU.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Molho Shoyu
+                  </h5>
+                  <p>
+                    6 pacotes de 150ml
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $17,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Molho Shoyu', 17.00, '(cod_403)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/MOLHO4.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Molho de Alho com pimenta
+                  </h5>
+                  <p>
+                    6 garrafas de 150ml
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $17,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Molho de alho com pimenta', 17.00, '(cod_203)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/MOLHO5.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Molho de pimenta tradicional
+                  </h5>
+                  <p>
+                    6 garrafas de 150ml
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $24,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Molho de pimenta', 24.90, '(cod_450)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/PIM BIQ.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pimenta Biquinho
+                  </h5>
+                  <p>
+                    3 garrafas de 168g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $21,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Pimenta biquinho', 21.90, '(cod_238)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/PIM CAR1.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pimenta Carolina Reaper
+                  </h5>
+                  <p>
+                    6 garrafas de 150g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $37,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Pimenta Carolina Reaper', 37.50, '(cod_1114)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/PIM MALAG.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pimenta Malagueta
+                  </h5>
+                  <p>
+                    3 garrafas de 170g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $20,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Pimenta Malagueta', 20.00, '(cod_843)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/PIM SUPER FORTE.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pimenta Super forte
+                  </h5>
+                  <p>
+                    3 garrafas de 170g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $27,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Pimenta super forte', 27.00, '(cod_1034)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/PIM1.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pimenta Rosa
+                  </h5>
+                  <p>
+                    6 pacotes de 20g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $13,95
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Pimenta Rosa', 13.95, '(cod_460)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/PIM2.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pimenta Caiena
+                  </h5>
+                  <p>
+                    6 pacotes de 20g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $8,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Pimenta Caiena', 8.00, '(cod_463)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all molhos ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/molhos/PIM3.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pimenta Calabresa
+                  </h5>
+                  <p>
+                    12 pacotes de 15g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $14,25
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Pimenta Calabresa', 14.25, '(cod_505)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!-- =========================================================matinais=============================================== -->
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/AMEIXA.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Ameixa seca
+                  </h5>
+                  <p>
+                    12 pacotes de 100g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $59,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Ameixa Seca', 59.90, '(cod_860)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/AVEIA.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Aveia flocos finos
+                  </h5>
+                  <p>
+                    6 pacotes de 170g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $22,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Aveia flocos finos', 22.50, '(cod_84)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/AZEIT.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Azeitona Verde
+                  </h5>
+                  <p>
+                    6 pacotes de 100g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $27,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Ameixa Seca', 27.50, '(cod_1436)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/CRISTALIZADAS.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Frutas Cristalizadas
+                  </h5>
+                  <p>
+                    6 pacotes de 100g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $19,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('frutas cristalizadas', 19.00, '(cod_1284)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/FAR AVEIA.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Farinha de Aveia
+                  </h5>
+                  <p>
+                    6 pacotes de 170g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $25,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Farinha de aveia', 25.00, '(cod_83)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/FARELO AVEIA.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Farelo de aveia
+                  </h5>
+                  <p>
+                    6 pacotes de 170g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $24,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('farelo de aveia', 24.00, '(cod_155)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/GRA.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Granola
+                  </h5>
+                  <p>
+                    6 pacotes de 180g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $42,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Granola', 42.50, '(cod_301)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/GUA.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Guaraná em pó
+                  </h5>
+                  <p>
+                    6 unidades de 50g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $28,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Guarana em pó', 28.90, '(cod_1306)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/MAT01.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Uva passa
+                  </h5>
+                  <p>
+                    12 pacotes de 100g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $35,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('uva passa', 35.00, '(cod_975)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/MAT02.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    chocolate granulado
+                  </h5>
+                  <p>
+                    12 pacotes de 40g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $14,25
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('chocolate granulado', 14.25, '(cod_342)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/MAT03.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Granulado colorido
+                  </h5>
+                  <p>
+                    12 pacotes de 40g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $13,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Granulado colorido ', 13.00, '(cod_2871)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/MAT05.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Gergelim
+                  </h5>
+                  <p>
+                    6 pacotes de 100g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $14,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Gergelim ', 14.90, '(cod_462)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/MAT06.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Maná cristalizado
+                  </h5>
+                  <p>
+                    12 pacotes de 20g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $12,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Maná cristalizado ', 12.50, '(cod_504)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/OLEO COCO.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                  Óleo de coco
+                  </h5>
+                  <p>
+                    3 unidades de 200ml
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $39,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('oleo de coco ', 39.90, '(cod_485)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all matinais ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/matinais/QUINOA.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Quinoa em grãos
+                  </h5>
+                  <p>
+                    3 pacotes de 200g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $16,39
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Quinoa em grãos ', 16.39, '(cod_714)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ========================================================especiarias======================================================== -->
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/CAN1.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Canela em pó 30g
+                  </h5>
+                  <p>
+                    12 pacotes de 30g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $ 36,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Canela em pó 30g', 36.50, '(cod_1023)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/CAN2.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Canela em pó 15g
+                  </h5>
+                  <p>
+                    12 pacotes de 15g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $ 23,29
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Canela em pó 15g', 23.29, '(cod_924)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP1.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Canela em casca
+                  </h5>
+                  <p>
+                    12 pacotes de 10g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $ 21,60
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Canela em casca', 21.60, '(cod_108)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP10.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Noz Moscada moída
+                  </h5>
+                  <p>
+                    6 pacotes de 20g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $ 17,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Nos moscada moída', 17.50, '(cod_1049)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP12.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Folha de Boldo
+                  </h5>
+                  <p>
+                    12 pacotes de 5g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $ 10,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Folha de boldo', 10.00, '(cod_117)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP15.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Erva Doce
+                  </h5>
+                  <p>
+                    12 pacotes de 15g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $10,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Erva Doce', 10.00, '(cod_113)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP16.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Camomila
+                  </h5>
+                  <p>
+                    6 pacotes de 5g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $7,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Camomila', 7.50, '(cod_110)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP17.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Alecrim Folhas
+                  </h5>
+                  <p>
+                    6 pacotes de 10g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $7,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Alecrim folhas', 7.50, '(cod_890)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP18.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Alfazema desidratada
+                  </h5>
+                  <p>
+                    6 pacotes de 10g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $8,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Alfazema desidratada', 8.50, '(cod_1409)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP19.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Anis
+                  </h5>
+                  <p>
+                    6 pacotes de 15g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $22,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Anis', 22.50, '(cod_1551)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP20.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Orégano
+                  </h5>
+                  <p>
+                    12 pacotes de 5g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Oregano', 9.00, '(cod_118)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP21.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Sene folhas
+                  </h5>
+                  <p>
+                    6 pacotes de 5g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $6,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Sene', 6.50, '(cod_879)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP22.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Sálvia
+                  </h5>
+                  <p>
+                    6 pacotes de 5g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $9,99
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Sálvia', 9.99, '(cod_1408)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP23.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Ervas Finas
+                  </h5>
+                  <p>
+                    6 pacotes de 10g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $8,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Ervas Finas', 8.90, '(cod_26)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP24.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Manjericão
+                  </h5>
+                  <p>
+                    6 pacotes de 5g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $6,00
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Manjericão', 6.00, '(cod_891)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP3.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Cravo da India
+                  </h5>
+                  <p>
+                    12 pacotes de 10g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $18,75
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Cravo da India', 18.75, '(cod_107)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP4.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Pixilin e noz moscada
+                  </h5>
+                  <p>
+                    6 pacotes
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $39,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Pixilin e nos moscada', 39.90, '(cod_120)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP7.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Semente de Coentro
+                  </h5>
+                  <p>
+                    12 pacotes 15g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $11,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Semente de Coentro', 11.90, '(cod_123)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP6.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Grão de Bico
+                  </h5>
+                  <p>
+                    6 pacotes 250g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $34,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Grão de bico', 34.50, '(cod_1550)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP8.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Cravo da em pó
+                  </h5>
+                  <p>
+                    6 pacotes 20g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $12,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Cravo em pó', 12.50, '(cod_295)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all especiarias ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/especiarias/ESP9.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Noz Moscada
+                  </h5>
+                  <p>
+                    6 pacotes 20g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $21,50
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Noz moscada', 21.50, '(cod_209)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ==============================================alho/ churrasco========================================================== -->
+          <div class="col-sm-6 col-lg-4 all alhoChurrasco ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/alhochurrasco/alho frito.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Alho Frito
+                  </h5>
+                  <p>
+                    6 Potes 90g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $29,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Alho Frito', 29.90, '(cod_845)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all alhoChurrasco ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/alhochurrasco/ALHO GRANEL.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Alho
+                  </h5>
+                  <p>
+                    12 Potes 90g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $28,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Alho ', 28.90, '(cod_101)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all alhoChurrasco ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/alhochurrasco/alho pasta.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Alho Pasta
+                  </h5>
+                  <p>
+                    6 Potes 190g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $31,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Alho Pasta', 31.90, '(cod_119)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all alhoChurrasco ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/alhochurrasco/creme alho.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Creme de alho
+                  </h5>
+                  <p>
+                    6 Potes 190g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $32,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Creme de Alho', 32.90, '(cod_942)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all alhoChurrasco ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/alhochurrasco/TEM1.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Alho e sal
+                  </h5>
+                  <p>
+                    6 Potes 200g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $11,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('Alho e Sal', 11.90, '(cod_124)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all alhoChurrasco ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/alhochurrasco/TEMP2.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    tempero completo C/pimenta
+                  </h5>
+                  <p>
+                    6 Potes 200g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $11,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('tempero completo com pimenta', 11.90, '(cod_360)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all alhoChurrasco ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/alhochurrasco/TEMP3.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    tempero completo S/pimenta
+                  </h5>
+                  <p>
+                    6 Potes 200g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $11,90
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('tempero completo sem pimenta', 11.90, '(cod_849)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all alhoChurrasco ">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="./images/alhochurrasco/TEMP4.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    tempera Tudo
+                  </h5>
+                  <p>
+                    6 Potes 200g
+                  </p>
+                  <div class="options">
+                    <h6>
+                      $13,25
+                    </h6>
+                    <button class="add-to-cart" onclick="addToCart('tempera tudo', 13.25, '(cod_977)')">Adicionar ao Carrinho</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          
 
         </div>
       </div>
@@ -537,16 +3347,16 @@
                   Location
                 </span>
               </a>
-              <a href="">
+              <!-- <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  ligue 79998825932
                 </span>
-              </a>
+              </a> -->
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  filialdaanaaju@gmail.com
                 </span>
               </a>
             </div>
@@ -555,10 +3365,10 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Feane
+              DaAna
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              O melhor tempero para os melhores clientes, compre em atacado ou varejo!
             </p>
             <div class="footer_social">
               <a href="">
@@ -581,22 +3391,22 @@
         </div>
         <div class="col-md-4 footer-col">
           <h4>
-            Opening Hours
+            Atendimento
           </h4>
           <p>
-            Everyday
+           de segunda a Sábado
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            7:00 Am -10:00 Pm
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
+          &copy; <span id="displayYear"></span> Desenvolvido por
+          <a href="https://html.design/">mchael.dev</a><br><br>
           &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+          <a href="https://themewagon.com/" target="_blank">mchael.dev</a>
         </p>
       </div>
     </div>
@@ -624,6 +3434,10 @@
   </script>
   <!-- End Google Map -->
 
+  <!-- lupa barra de pesquisa -->
+  <script src="./js/lupa-busca.js"></script>
+   <!-- scroll para cima da pagina -->
+  <script src="./js/scroll.js"></script>
 
   <!-- carrinho de compras -->
    <script src="./js/carrinho.js"></script>

@@ -3,120 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Busca de Produtos com Lupa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .search-container {
+            position: relative;
+            display: inline-block;
+        }
+        /* Ícone da lupa */
+        .nav_search-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        /* Barra de busca escondida inicialmente */
+        #searchInput {
+            display: none;
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+        /* Produtos */
+        .product {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
-    <style>
-        .myCarousel {
-  position: relative;
-  max-width: 50%;
-  margin: auto;
-  overflow: hidden;
-}
 
-.myCarousel-slide {
-  display: none;
-  width: 50%;
-}
-
-.myCarousel-slide img {
-  width:50%;
-  height: auto;
-}
-
-.activeSlide {
-  display: block;
-}
-
-.prevSlide, .nextSlide {
-  position: absolute;
-  top: 50%;
-  cursor: pointer;
-  padding: 16px;
-  color: rgb(0, 0, 0);
-  font-size: 24px;
-  font-weight: bold;
-  transition: 0.6s ease;
-  user-select: none;
-}
-
-.prevSlide {
-  left: 0;
-}
-
-.nextSlide {
-  right: 0;
-}
-
-
-    </style>
-    <h1>Seleção de Itens</h1>
+    <h1>Busca de Produtos com Lupa</h1>
     
-    <div class="myCarousel">
-      <div class="myCarousel-slide activeSlide">
-        <img src="./images/f9.png" alt="Imagem 1">
-      </div>
-      <div class="myCarousel-slide">
-        <img src="./images/f4.png" alt="Imagem 2">
-      </div>
-      <div class="myCarousel-slide">
-        <img src="./images/f2.png" alt="Imagem 3">
-      </div>
-    
-      <a class="prevSlide" onclick="moveMySlide(-1)">&#10094;</a>
-      <a class="nextSlide" onclick="moveMySlide(1)">&#10095;</a>
+    <!-- Ícone da lupa e barra de busca -->
+    <div class="search-container">
+        <form class="form-inline">
+            <button class="btn my-2 my-sm-0 nav_search-btn" type="button" onclick="toggleSearch()">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+            <input type="text" id="searchInput" placeholder="Digite o nome do produto..." onkeyup="searchProduct()">
+        </form>
     </div>
-    
-      
-      
 
-    <!-- Área de mensagem de sucesso e contagem do carrinho -->
-    <div id="mensagem-sucesso"></div>
-    <div id="contagem-carrinho">Itens no carrinho: <span id="contagem">0</span></div>
+    <!-- Lista de produtos -->
+    <div id="productList">
+        <div class="product" data-name="Camisa Azul">Camisa Azul - R$50,00</div>
+        <div class="product" data-name="Calça Jeans">Calça Jeans - R$100,00</div>
+        <div class="product" data-name="Tênis Esportivo">Tênis Esportivo - R$150,00</div>
+        <div class="product" data-name="Jaqueta de Couro">Jaqueta de Couro - R$200,00</div>
+        <div class="product" data-name="Boné">Boné - R$30,00</div>
+    </div>
 
-   <script>
-        let currentMySlide = 0;
-        let mySlideInterval;
-
-        function showMySlide(index) {
-          let slides = document.getElementsByClassName("myCarousel-slide");
-
-          if (index >= slides.length) {
-            currentMySlide = 0;
-          } else if (index < 0) {
-            currentMySlide = slides.length - 1;
-          } else {
-            currentMySlide = index;
-          }
-
-          for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-          }
-
-          slides[currentMySlide].style.display = "block";
+    <script>
+        // Função para exibir/esconder a barra de busca abaixo da lupa
+        function toggleSearch() {
+            var searchInput = document.getElementById("searchInput");
+            if (searchInput.style.display === "none") {
+                searchInput.style.display = "block";
+                searchInput.focus();  // Coloca o cursor na barra de busca
+            } else {
+                searchInput.style.display = "none";
+            }
         }
 
-        function moveMySlide(step) {
-          clearInterval(mySlideInterval); // Parar a transição automática ao clicar manualmente
-          showMySlide(currentMySlide + step);
-          startMySlideShow(); // Reiniciar o intervalo após a interação manual
+        // Função de busca de produtos
+        function searchProduct() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let products = document.getElementsByClassName('product');
+            
+            for (let i = 0; i < products.length; i++) {
+                let productName = products[i].getAttribute('data-name').toLowerCase();
+                if (productName.includes(input)) {
+                    products[i].style.display = '';
+                } else {
+                    products[i].style.display = 'none';
+                }
+            }
         }
+    </script>
 
-        function startMySlideShow() {
-          mySlideInterval = setInterval(() => {
-            showMySlide(currentMySlide + 1);
-          }, 3000); // Altere o tempo conforme necessário
-        }
-
-        window.onload = () => {
-          showMySlide(currentMySlide);
-          startMySlideShow();
-        };
-
-   </script>
-
-    <script src="cart.js"></script>
 </body>
 </html>
-
