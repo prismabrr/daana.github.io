@@ -74,5 +74,5 @@ function finalizeCart() {
     const message = `Itens do carrinho:\n${cartDetails}\nTotal: ${total}\n\nContato via WhatsApp: https://wa.me/5579996004918`;
 
     // Redireciona para o WhatsApp com as informações do carrinho
-    window.open(`https://wa.me/5579996004918?text=${encodeURIComponent(message)}`);
+    window.open(`https://wa.me/5579998825932?text=${encodeURIComponent(message)}`);
 }
