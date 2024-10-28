@@ -67,5 +67,15 @@ h1{
     background: linear-gradient(to top, #888888,#cccccc);
 }
 .receita{
-    display: flex;
+    display: block;
+}
+.preparo h1{
+    background-color: rgb(167, 7, 7);
+}
+.preparo1 ol li{
+    text-align: left;
+   
+}
+.preparo1{
+    background: linear-gradient(to left, #888888, #cccccc);
 }

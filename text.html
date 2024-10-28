@@ -3,90 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Busca de Produtos com Lupa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .search-container {
-            position: relative;
-            display: inline-block;
-        }
-        /* Ícone da lupa */
-        .nav_search-btn {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        /* Barra de busca escondida inicialmente */
-        #searchInput {
-            display: none;
-            width: 200px;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            margin-top: 10px;
-        }
-        /* Produtos */
-        .product {
-            margin: 15px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-    </style>
+    <title>Mapa no HTML</title>
 </head>
 <body>
 
-    <h1>Busca de Produtos com Lupa</h1>
+    <h2>Localização</h2>
+    <p>Abaixo está o mapa da localização desejada:</p>
     
-    <!-- Ícone da lupa e barra de busca -->
-    <div class="search-container">
-        <form class="form-inline">
-            <button class="btn my-2 my-sm-0 nav_search-btn" type="button" onclick="toggleSearch()">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-            <input type="text" id="searchInput" placeholder="Digite o nome do produto..." onkeyup="searchProduct()">
-        </form>
-    </div>
-
-    <!-- Lista de produtos -->
-    <div id="productList">
-        <div class="product" data-name="Camisa Azul">Camisa Azul - R$50,00</div>
-        <div class="product" data-name="Calça Jeans">Calça Jeans - R$100,00</div>
-        <div class="product" data-name="Tênis Esportivo">Tênis Esportivo - R$150,00</div>
-        <div class="product" data-name="Jaqueta de Couro">Jaqueta de Couro - R$200,00</div>
-        <div class="product" data-name="Boné">Boné - R$30,00</div>
-    </div>
-
-    <script>
-        // Função para exibir/esconder a barra de busca abaixo da lupa
-        function toggleSearch() {
-            var searchInput = document.getElementById("searchInput");
-            if (searchInput.style.display === "none") {
-                searchInput.style.display = "block";
-                searchInput.focus();  // Coloca o cursor na barra de busca
-            } else {
-                searchInput.style.display = "none";
-            }
-        }
-
-        // Função de busca de produtos
-        function searchProduct() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let products = document.getElementsByClassName('product');
-            
-            for (let i = 0; i < products.length; i++) {
-                let productName = products[i].getAttribute('data-name').toLowerCase();
-                if (productName.includes(input)) {
-                    products[i].style.display = '';
-                } else {
-                    products[i].style.display = 'none';
-                }
-            }
-        }
-    </script>
+    <!-- Cole o iframe do Google Maps aqui -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30452.658117204144!2d-38.544639576758264!3d-10.878201756779536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x711f08cbac17d41%3A0x9548c7b3c8bc8165!2sDAANA%20Alimentos!5e0!3m2!1spt-BR!2sbr!4v1730061621196!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 </body>
 </html>
+

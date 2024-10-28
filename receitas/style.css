@@ -599,6 +599,9 @@ body.dark{
     font-size: 1.5rem;
 
 }
+.receita{
+    display: block;
+}
 /* ================================== */
 .carousel-control-next{
     width: 50vh;
@@ -631,4 +634,5 @@ body.dark{
     html{
         font-size: 50%; 
     }
+    
 }
