@@ -39,7 +39,7 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="./images/bannerDaAna.png" alt="">
+      <img src="./images/bannerDaAna.jpg" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -133,7 +133,7 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button> -->
               </form>
-              <a href="menu.html" class="order_online">
+              <a  href="https://wa.me/5579998825932?text=Olá,%20gostaria%20de%20mais%20informações." class="order_online">
                 Falar com vendedor
               </a>
             </div>
@@ -194,7 +194,7 @@
                     <!-- <h1>
                       DaAna
                     </h1> -->
-                    <img src="./images/logo-daana.png" alt="">
+                    <!-- <img src="./images/logo-daana.png" alt=""> -->
                     <p style="color: brown;">
                       ...                     </p>
                     <div class="btn-box">
@@ -506,45 +506,45 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <form action="">
+            <form id="whatsappForm" onsubmit="sendWhatsAppMessage(event)">
               <div>
-                <input type="text" class="form-control" placeholder="Seu nome" />
+                <input type="text" id="nome" class="form-control" placeholder="Seu nome" required />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Numero de celular" />
+                <input type="text" id="telefone" class="form-control" placeholder="Número de celular" required />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" />
-              </div>
-              <div>
-                <!-- <select class="form-control nice-select wide">
-                  <option value="" disabled selected>
-                    How many persons?
-                  </option>
-                  <option value="">
-                    2
-                  </option>
-                  <option value="">
-                    3
-                  </option>
-                  <option value="">
-                    4
-                  </option>
-                  <option value="">
-                    5
-                  </option>
-                </select> -->
-              </div>
-              <div>
-                <input type="date" class="form-control">
+                <input type="email" id="email" class="form-control" placeholder="Email" required />
               </div>
               <div class="btn_box">
-                <button>
-                  Enviar
-                </button>
+                <button type="submit">Enviar</button>
               </div>
             </form>
           </div>
+          
+          <script>
+            function sendWhatsAppMessage(event) {
+              event.preventDefault(); // Impede o envio tradicional do formulário
+          
+              const nome = document.getElementById("nome").value;
+              const telefone = document.getElementById("telefone").value;
+              const email = document.getElementById("email").value;
+          
+              // Obtém a data atual no formato desejado (DD/MM/AAAA)
+              const today = new Date();
+              const dataFormatada = today.toLocaleDateString("pt-BR");
+          
+              const preMessage = "Olá, gostaria de mais informações sobre essa empresa, e seus produtos!:";
+              const message = `${preMessage}\n\nNome: ${nome}\nTelefone: ${telefone}\nEmail: ${email}\nData: ${dataFormatada}`;
+          
+              const whatsappNumber = "5579998825932"; // Número de WhatsApp para envio
+              const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+          
+              window.open(whatsappURL, "_blank"); // Abre o WhatsApp em uma nova guia
+            }
+          </script>
+          
+
         </div>
         <div class="col-md-6">
           <div class="map_container ">
@@ -647,7 +647,7 @@
               O melhor tempero para os melhores clientes, compre em atacado ou varejo!
             </p>
             <div class="footer_social">
-              <a href="">
+              <!-- <a href="">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
               <a href="">
@@ -655,13 +655,13 @@
               </a>
               <a href="">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
+              </a> -->
+              <a href="https://www.instagram.com/daanaind/">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <!-- <a href="">
                 <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
@@ -680,13 +680,15 @@
       <div class="footer-info">
         <p>
           &copy; <span id="displayYear"></span> Desenvolvido por
-          <a href="https://html.design/">mchael.dev</a><br><br>
+          <a href="#">mchael.dev</a><br><br>
           &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">mchael.dev</a>
+          <a href="#" target="_blank">mchael.dev</a>
         </p>
       </div>
     </div>
   </footer>
+
+  
   <!-- footer section -->
 
   <!-- jQery -->
@@ -710,6 +712,9 @@
   </script>
   <!-- End Google Map -->
    <script src="./js/carousel.js"></script>
+
+   <!-- direcionar o botão falar com vendedor -->
+   
 
   <!-- <script src="./js/carousel.js"></script> -->
 

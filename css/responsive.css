@@ -36,6 +36,20 @@ padding-left: 0;
     margin-right: 0;
     margin-bottom: 15px;
   }
+ 
+  .bg-box img{
+    display: none;
+  }
+  .bg-box{
+    background-image: url(../images/fundo-mobile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    
+
+  }
+  
 }
 
 @media (max-width: 767px) {
@@ -61,6 +75,15 @@ padding-left: 0;
   .destaque-um{
     display: block;
   }
+  .row .img-box{
+    width: 41vh;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+}
+
+
+
  
 }
 
@@ -78,6 +101,7 @@ padding-left: 0;
     margin-right: 0;
     margin-bottom: 15px;
   }
+  
 }
 
 @media (max-width: 376px) {

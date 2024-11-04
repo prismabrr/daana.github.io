@@ -998,6 +998,30 @@ a:focus {
   background-color: #da1b1b;
 }
 
+/* ==================================================================carrinho de compras============================================================= */
+
+.cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 2em;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+#cart-icon-count {
+  background-color: #ff0000;
+  color: white;
+  border-radius: 10%;
+  padding: 2px 6px;
+  font-size: 0.6em;
+  margin-left: 5px;
+}
+/* esse estilo serve apenas para a notificação de que foi adicionado um item no carrinho */
+/* ====================================================fim carrinho de compras====================================================== */
+
 /* footer section*/
 .footer_section {
   background-color: #222831;

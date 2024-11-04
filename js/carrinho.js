@@ -15,6 +15,7 @@ function addToCart(name, price, code) {
         cart.push({ name, price, code, quantity: 1 });
     }
     updateCart();
+    updateCartCount();  // Atualiza o número de itens no ícone do carrinho
 }
 
 function updateCart() {
@@ -26,7 +27,6 @@ function updateCart() {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${item.name}</td>
-            
             <td>${item.price.toFixed(2)}</td>
             <td>
                 <div class="quantity-controls">
@@ -41,7 +41,6 @@ function updateCart() {
         cartItems.appendChild(row);
     });
 
-    // Atualizar o valor total
     const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
     const totalRow = document.createElement('tr');
     totalRow.innerHTML = `
@@ -49,6 +48,8 @@ function updateCart() {
         <td>${cartTotal}</td>
     `;
     cartItems.appendChild(totalRow);
+
+    updateCartCount();  // Certifica que o número no ícone é atualizado ao remover ou alterar quantidade
 }
 
 function changeQuantity(name, change) {
@@ -68,11 +69,16 @@ function removeFromCart(name) {
     updateCart();
 }
 
+function updateCartCount() {
+    const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0); // Soma todas as quantidades
+    const cartIcon = document.getElementById('cart-icon-count');
+    cartIcon.textContent = cartCount > 0 ? cartCount : ''; // Exibe o número ou esconde se for zero
+}
+
 function finalizeCart() {
     const cartDetails = cart.map(item => `${item.name} ----${item.code} ------------ ${item.quantity} x ${item.price.toFixed(2)} = ${(item.price * item.quantity).toFixed(2)}`).join('\n');
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
     const message = `Itens do carrinho:\n${cartDetails}\nTotal: ${total}\n\nContato via WhatsApp: https://wa.me/5579996004918`;
 
-    // Redireciona para o WhatsApp com as informações do carrinho
     window.open(`https://wa.me/5579998825932?text=${encodeURIComponent(message)}`);
 }
